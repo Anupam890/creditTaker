@@ -4,6 +4,7 @@ import cutm2 from "../assets/cutm2.jpg";
 import cutm3 from "../assets/cutm3.jpg";
 
 const Home = () => {
+ 
   const slides = [
     {
       src: cutm1,
@@ -21,6 +22,9 @@ const Home = () => {
       text: "Introducing our new Credit Tracker tool: Manage your coursework, track your grades, and stay on top of your academic progress with ease.",
     },
   ];
+
+ 
+
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -71,10 +75,11 @@ const Home = () => {
         </div>
       </div>
       <div className="second-section">
-        <h4></h4>
+       
 
         
       </div>
+      
     </>
   );
 };

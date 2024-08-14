@@ -10,6 +10,9 @@ const BasketCredit = () => {
   const handleInput = (e) => {
     e.preventDefault();
     setLoading(true);
+    setTimeout(()=>{
+      setLoading(false);
+    },2000)
   };
 
   const handleChange = (e) => {
@@ -22,7 +25,7 @@ const BasketCredit = () => {
 
   return (
     <>
-      <section className="max-h-screen">
+      <section className="min-h-screen">
         <div className="bg-white relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-20 max-w-7xl">
           <div className="w-full max-w-md mx-auto md:max-w-sm md:px-0 md:w-96 sm:px-4">
             <div className="flex flex-col">
@@ -30,7 +33,7 @@ const BasketCredit = () => {
                 <h2 className="text-4xl text-black">Fetch Credits</h2>
               </div>
             </div>
-            <div className="p-3 ">
+            <div className="p-3  ">
               {Loading ? (
                 <Loader />
               ) : (
