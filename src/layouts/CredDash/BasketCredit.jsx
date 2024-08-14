@@ -1,5 +1,9 @@
 import { useState } from "react";
 import Loader from "../../components/Loader";
+import 'animate.css'
+
+
+
 const BasketCredit = () => {
   const [formDetail, setFormDetail] = useState({
     registrationNo: "",
@@ -30,14 +34,14 @@ const BasketCredit = () => {
           <div className="w-full max-w-md mx-auto md:max-w-sm md:px-0 md:w-96 sm:px-4">
             <div className="flex flex-col">
               <div>
-                <h2 className="text-4xl text-black">Fetch Credits</h2>
+                <h2 className="text-4xl text-black animate__animated animate__fadeInUp">Fetch Credits</h2>
               </div>
             </div>
             <div className="p-3  ">
               {Loading ? (
                 <Loader />
               ) : (
-                <form onSubmit={handleInput}>
+                <form onSubmit={handleInput} className="animate__animated animate__fadeInUp">
                   <div className="mt-4 space-y-6">
                     <div className="col-span-full">
                       <label className="block mb-3 text-sm font-medium text-gray-600">
@@ -60,7 +64,8 @@ const BasketCredit = () => {
                         name="branch"
                         value={formDetail.branch}
                         onChange={handleChange}
-                        className="block w-full px-6 py-3 text-black bg-white border border-gray-200 rounded-full appearance-none placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                        className="block w-full px-6 py-3 text-black bg-white border border-gray-200 rounded-full appearance-none placeholder:text-gray-400
+                         focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                       >
                         <option value="">Select Branch</option>
                         <option value="cse">Computer Science</option>

@@ -4,11 +4,12 @@ import { RxCross2 } from "react-icons/rx";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
+import 'animate.css';
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [Pin, setPin] = useState(""); // Initialize as an empty string
+  const [Pin, setPin] = useState(""); 
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -34,26 +35,24 @@ function Navbar() {
     e.preventDefault();
     const correctPin = "Cutm123@";
     if (Pin === correctPin) {
-      toast.success('login Success',{
+      toast.success('login Success', {
         position: "bottom-center"
       });
       setShowModal(false); 
       setTimeout(()=>{
         navigate("admin-panel");
-      },2000)
+      },2000);
       setPin(""); 
     } else {
-     toast.error('Incorrect Pin',
-      {
+     toast.error('Incorrect Pin', {
         position: "bottom-center"
-      }
-     );
+      });
     }
   };
 
   return (
     <>
-      <nav className="text-black h-20 flex justify-between md:justify-around items-center px-3 border-b shadow-sm mb-4">
+      <nav className="text-black h-20 flex justify-between md:justify-around items-center px-3 border-b shadow-sm mb-4 animate__animated animate__slideInDown">
         <div className="flex items-center">
           <h1 className="text-3xl font-bold">Credit Tracker</h1>
         </div>
@@ -89,7 +88,7 @@ function Navbar() {
           <div className="fixed inset-0 bg-black bg-opacity-50 z-40"></div>
           <div
             id="sidebar"
-            className="fixed left-0 top-0 h-full w-64 bg-[#07294D] text-white z-50 transform transition-transform duration-300 ease-in-out"
+            className={`fixed left-0 top-0 h-full w-64 bg-[#07294D] text-white z-50 transform transition-transform duration-300 ease-in-out animate__animated animate__slideInDown`}
             style={{
               transform: navbar ? "translateX(0)" : "translateX(-100%)",
             }}
@@ -118,14 +117,13 @@ function Navbar() {
         </>
       )}
 
-      {/* Admin Modal */}
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ">
           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
             <h2 className="text-xl font-semibold mb-4">Admin Panel</h2>
             <form onSubmit={handlePin}>
               <input
-                type="password" 
+                type="password"
                 value={Pin}
                 onChange={(e) => setPin(e.target.value)}
                 className="w-full p-2 mb-4 border border-gray-300 rounded"

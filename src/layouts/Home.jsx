@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import cutm1 from "../assets/cutm1.jpg";
 import cutm2 from "../assets/cutm2.jpg";
 import cutm3 from "../assets/cutm3.jpg";
+import 'animate.css';
 
 const Home = () => {
  
@@ -9,23 +10,19 @@ const Home = () => {
     {
       src: cutm1,
       alt: "cutm1",
-      text: "Centurion University of Technology and Management (CUTM) is a pioneering institution committed to transforming the lives of its students through innovative education and industry-aligned programs.",
+      
     },
     {
       src: cutm2,
       alt: "cutm2",
-      text: "Explore our diverse range of programs designed to equip you with the skills and knowledge needed to succeed in the modern world. Your future starts here at CUTM.",
+     
     },
     {
       src: cutm3,
       alt: "cutm3",
-      text: "Introducing our new Credit Tracker tool: Manage your coursework, track your grades, and stay on top of your academic progress with ease.",
+      
     },
   ];
-
- 
-
-
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -33,7 +30,7 @@ const Home = () => {
       setCurrentSlide((prevSlide) =>
         prevSlide === slides.length - 1 ? 0 : prevSlide + 1
       );
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -42,7 +39,7 @@ const Home = () => {
     <>
       <div
         id="carouselExampleSlidesOnly"
-        className="relative w-full h-[500px]"
+        className="relative w-full h-[500px] mb-4"
         data-twe-carousel-init
         data-twe-ride="carousel"
       >
@@ -63,9 +60,12 @@ const Home = () => {
                 alt={slide.alt}
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                <h2 className="text-3xl font-bold mb-4 text-white drop-shadow-md">
-                  {slide.text}
+                <h2 className="text-6xl font-bold mb-4  text-white drop-shadow-md">
+                  Welcome to Centurion University
                 </h2>
+                <p className="text-xl font-bold mb-4 text-white drop-shadow-md">
+                  Empowering Future Leaders with Quality Education and Skills
+                </p>
                 <button className="bg-blue-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                   Learn More
                 </button>
@@ -75,6 +75,7 @@ const Home = () => {
         </div>
       </div>
       <div className="second-section">
+        <h3 className="text-center">About Us</h3>
        
 
         
