@@ -1,8 +1,6 @@
 import { useState } from "react";
 import Loader from "../../components/Loader";
-import 'animate.css'
-
-
+import 'animate.css';
 
 const BasketCredit = () => {
   const [formDetail, setFormDetail] = useState({
@@ -11,12 +9,13 @@ const BasketCredit = () => {
     year: "",
   });
   const [Loading, setLoading] = useState(false);
+
   const handleInput = (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoading(false);
-    },2000)
+    }, 2000);
   };
 
   const handleChange = (e) => {
@@ -37,9 +36,12 @@ const BasketCredit = () => {
                 <h2 className="text-4xl text-black animate__animated animate__fadeInUp">Fetch Credits</h2>
               </div>
             </div>
-            <div className="p-3  ">
+            <div className="p-3">
               {Loading ? (
-                <Loader />
+                // Centering the Loader using Flexbox
+                <div className="flex justify-center items-center h-64">
+                  <Loader />
+                </div>
               ) : (
                 <form onSubmit={handleInput} className="animate__animated animate__fadeInUp">
                   <div className="mt-4 space-y-6">
