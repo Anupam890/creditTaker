@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-function DeleteStudent({ handleCloseMainModal }) {
+function DeleteStudent({ handleCloseModal }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
+  const handleCloseConfirmationModal = () => setIsModalOpen(false);
   const handleConfirmDelete = () => {
     // Handle the delete logic here
-    handleCloseModal();
-    handleCloseMainModal(); // Close the main modal when deletion is confirmed
+    handleCloseConfirmationModal();
+    handleCloseModal(); // Close the main modal when deletion is confirmed
   };
 
   return (
@@ -57,10 +57,7 @@ function DeleteStudent({ handleCloseMainModal }) {
                   </svg>
                 </div>
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                  <h3
-                    className="text-base font-semibold leading-6 text-gray-900"
-                    id="modal-title"
-                  >
+                  <h3 className="text-base font-semibold leading-6 text-gray-900" id="modal-title">
                     Confirm Deletion
                   </h3>
                   <div className="mt-2">
@@ -81,7 +78,7 @@ function DeleteStudent({ handleCloseMainModal }) {
               </button>
               <button
                 type="button"
-                onClick={handleCloseModal}
+                onClick={handleCloseConfirmationModal}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
               >
                 Cancel
