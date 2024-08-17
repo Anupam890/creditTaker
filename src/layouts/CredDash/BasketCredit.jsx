@@ -17,14 +17,14 @@ const BasketCredit = () => {
     year: "",
   });
   const [loading, setLoading] = useState(false);
-  const [fetchedData, setFetchedData] = useState(null); // State to store fetched data
+  const [fetchedData, setFetchedData] = useState(null); 
 
   const handleInput = (e) => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      // Simulate fetching data; you can replace this with actual data fetching logic
+      
       setFetchedData(creditTable);
     }, 3000);
   };
