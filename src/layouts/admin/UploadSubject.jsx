@@ -19,8 +19,12 @@ function UploadSubject() {
           <option value="it">Information Technology</option>
           <option value="ece">Electronics and Communication</option>
         </select>
+        <label className="block mb-2 text-sm font-medium text-gray-700">
+          Select File
+        </label>
         <input
           type="file"
+          accept='.xlsx'
           className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4"
         />
         <button
@@ -37,8 +41,6 @@ function UploadSubject() {
           Add Manually
         </button>
       </form>
-
-      {/* Modal for Add Manually */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
