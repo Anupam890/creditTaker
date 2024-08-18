@@ -4,12 +4,15 @@ import { RxCross2 } from "react-icons/rx";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
+import { useAuth } from "../context/AuthProvider"; 
 import 'animate.css';
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [Pin, setPin] = useState(""); 
+  const [pin, setPin] = useState(""); 
+  const { isAuthenticated, login, logout } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -29,25 +32,30 @@ function Navbar() {
     };
   }, [navbar]);
 
-  const navigate = useNavigate();
-
   const handlePin = (e) => {
     e.preventDefault();
     const correctPin = "Cutm123@";
-    if (Pin === correctPin) {
-      toast.success('login Success', {
+    if (pin === correctPin) {
+      toast.success('Login successful!', {
         position: "bottom-center"
       });
+      login();
       setShowModal(false); 
-      setTimeout(()=>{
-        navigate("admin-panel");
-      },2000);
       setPin(""); 
+      navigate("/admin-panel");
     } else {
-     toast.error('Incorrect Pin', {
+      toast.error('Incorrect PIN. Please try again.', {
         position: "bottom-center"
       });
     }
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+    toast.success('Logged out successfully!', {
+      position: "bottom-center"
+    });
   };
 
   return (
@@ -64,9 +72,17 @@ function Navbar() {
             <li className="hover:text-gray-400 cursor-pointer text-lg">
               <Link to="basketcredits">Basket Credits</Link>
             </li>
-            <li className="cursor-pointer">
-              <MdAdminPanelSettings size={26} onClick={() => setShowModal(true)} />
-            </li>
+            {isAuthenticated ? (
+              <li className="cursor-pointer">
+                <button onClick={handleLogout} className="text-lg">
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <li className="cursor-pointer">
+                <MdAdminPanelSettings size={26} onClick={() => setShowModal(true)} />
+              </li>
+            )}
           </ul>
         </div>
         <div className="md:hidden flex items-center">
@@ -109,9 +125,17 @@ function Navbar() {
                   Basket Credits
                 </Link>
               </li>
-              <li className="cursor-pointer">
-              <MdAdminPanelSettings size={26} onClick={() => setShowModal(true)} />
-            </li>
+              {isAuthenticated ? (
+                <li className="cursor-pointer">
+                  <button onClick={handleLogout} className="text-lg text-red-500">
+                    Logout
+                  </button>
+                </li>
+              ) : (
+                <li className="cursor-pointer">
+                  <MdAdminPanelSettings size={26} onClick={() => setShowModal(true)} />
+                </li>
+              )}
             </ul>
           </div>
         </>
@@ -124,7 +148,7 @@ function Navbar() {
             <form onSubmit={handlePin}>
               <input
                 type="password"
-                value={Pin}
+                value={pin}
                 onChange={(e) => setPin(e.target.value)}
                 className="w-full p-2 mb-4 border border-gray-300 rounded"
                 placeholder="Enter admin PIN"
@@ -136,6 +160,7 @@ function Navbar() {
                 Login
               </button>
               <button
+                type="button"
                 onClick={() => setShowModal(false)}
                 className="ml-2 text-red-500 px-4 py-2 rounded hover:underline"
               >
