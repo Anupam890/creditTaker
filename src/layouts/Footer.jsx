@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="mb-6 md:mb-0">
               <a href="#" className="flex items-center">
                 
-                <span className="text-3xl font-bold">YourBrand</span>
+                <span className="text-3xl font-bold">CUTM</span>
               </a>
               <p className="mt-4 text-gray-400">
                 Empowering your digital presence with innovative solutions.
