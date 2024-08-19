@@ -1,9 +1,15 @@
+const handleServer = (e)=>{
+  e.preventDefault();
+  
+}
+
 
 function DeleteSubject() {
   return (
     <div>
-      <form className="flex flex-col">
+      <form className="flex flex-col" onSubmit={handleServer}>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Delete Subject Data</h2>
+            <label className="block mb-2 text-sm font-medium text-gray-700">Select Branch</label>
             <select
               name="branch"
               className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"

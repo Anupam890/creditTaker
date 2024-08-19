@@ -6,18 +6,24 @@ function DeleteStudent({ handleCloseModal }) {
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseConfirmationModal = () => setIsModalOpen(false);
   const handleConfirmDelete = () => {
-    // Handle the delete logic here
+   
     handleCloseConfirmationModal();
-    handleCloseModal(); // Close the main modal when deletion is confirmed
+    handleCloseModal(); 
   };
+
+  const handleServer = (e)=>{
+    e.preventDefault();
+    
+  }
 
   return (
     <div>
-      <form className="flex flex-col">
+      <form className="flex flex-col" onSubmit={handleServer}>
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Delete Student Data</h2>
+        <label className="block mb-2 text-sm font-medium text-gray-700">Year</label>
         <input
           type="number"
-          placeholder="Student ID"
+          placeholder="Enter Year (e.g. 1, 2, 3, 4)"
           className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
         />
         <button

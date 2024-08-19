@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { IoPeopleSharp } from "react-icons/io5";
 import DeleteSubject from "./DeleteSubject";
 import UploadSubject from "./UploadSubject";
-import DeleteStudent from "../DeleteStudent";
+import DeleteStudent from "./DeleteStudent";
 import UploadStudent from "./UploadStudent";
 import GenerateReport from "./GenerateReport";
 import 'animate.css';

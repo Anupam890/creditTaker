@@ -74,7 +74,7 @@ function Navbar() {
             </li>
             {isAuthenticated ? (
               <li className="cursor-pointer">
-                <button onClick={handleLogout} className="text-lg">
+                <button onClick={handleLogout} className="text-lg text-red-500">
                   Logout
                 </button>
               </li>
