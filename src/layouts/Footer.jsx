@@ -49,11 +49,7 @@ const Footer = () => {
                       Blog
                     </a>
                   </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white">
-                      Help Center
-                    </a>
-                  </li>
+                  
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white">
                       API Documentation
@@ -111,8 +107,8 @@ const Footer = () => {
           <hr className="my-8 border-gray-700" />
 
           <div className="flex justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              &copy; 2024 YourBrand. All rights reserved.
+            <p className="text-gray-400 text-sm text-center">
+              &copy; 2024 CUTM. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-white">

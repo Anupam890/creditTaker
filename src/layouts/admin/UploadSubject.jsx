@@ -29,7 +29,7 @@ function UploadSubject() {
           <option value="ece">Electronics and Communication</option>
         </select>
         <label className="block mb-2 text-sm font-medium text-gray-700">
-          Select File
+          Upload File
         </label>
         <input
           type="file"
