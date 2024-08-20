@@ -39,10 +39,12 @@ function Navbar() {
       toast.success('Login successful!', {
         position: "bottom-center"
       });
-      login();
+      setTimeout(()=>{
+        login();
       setShowModal(false); 
       setPin(""); 
       navigate("/admin-panel");
+      },2000)
     } else {
       toast.error('Incorrect PIN. Please try again.', {
         position: "bottom-center"
